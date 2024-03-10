@@ -120,3 +120,30 @@ int duploHash(int H1, int chave, int i, int TABLE_SIZE)
     int H2 = chaveDivisao(chave, TABLE_SIZE - 1) + 1;
     return ((H1 + i * H2) & 0x7FFFFFFF) % TABLE_SIZE;
 }
+
+int insereHash_enderecoAberto(Hash *ha, struct aluno al)
+{
+    if (ha == NULL || ha->qtd == ha->TABLE_SIZE)
+        return 0;
+    int chave = al.matricula;
+    int i, pos, newPos;
+    pos = chaveDivisao(chave, ha->TABLE_SIZE);
+    for (i = 0; i < ha->TABLE_SIZE; i++)
+    {
+        newPos = sondagemLinear(pos, i, ha->TABLE_SIZE);
+        //newPos = sondagemQuadratica(pos, i, ha->TABLE_SIZE);
+        //newPos = duploHash(pos, chave, i, ha->TABLE_SIZE);
+        if (ha->itens[newPos] == NULL)
+        {
+            struct aluno *novo;
+            novo = (struct aluno *)malloc(sizeof(struct aluno));
+            if (novo == NULL)
+                return 0;
+            *novo = al;
+            ha->itens[newPos] = novo;
+            ha->qtd++;
+            return 1;
+        }
+    }
+    return 0;
+}
