@@ -91,3 +91,16 @@ int insereHash_SemColisao(Hash *ha, struct aluno al)
     ha->qtd++; //atualiza a quantidade de elementos
     return 1;
 }
+
+int buscaHash_SemColisao(Hash *ha, int mat, struct aluno *al)
+{
+    if (ha == NULL)
+        return 0;
+    int pos = chaveDivisao(mat, ha->TABLE_SIZE);
+    //int pos = chaveMultiplicacao(mat, ha->TABLE_SIZE);
+    //int pos = chaveDobra(mat, ha->TABLE_SIZE);
+    if (ha->itens[pos] == NULL)
+        return 0;
+    *al = *(ha->itens[pos]);
+    return 1;
+}
