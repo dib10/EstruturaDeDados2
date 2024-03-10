@@ -64,3 +64,12 @@ int chaveDobra(int chave, int TABLE_SIZE)
     int parte2 = chave & (TABLE_SIZE - 1);
     return (parte1 ^ parte2);
 }
+
+int valorString(char *str)
+{
+    int i, valor = 7;
+    int tam = strlen(str);
+    for (i = 0; i < tam; i++)
+        valor = 31 * valor + (int)str[i];
+    return valor;
+}
