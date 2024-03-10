@@ -32,4 +32,17 @@ Hash *criaHash(int TABLE_SIZE)
     }
     return ha;
 }
-
+void liberaHash(Hash *ha)
+{
+    if (ha != NULL)
+    {
+        int i;
+        for (i = 0; i < ha->TABLE_SIZE; i++)
+        {
+            if (ha->itens[i] != NULL)
+                free(ha->itens[i]);
+        }
+        free(ha->itens);
+        free(ha);
+    }
+}
