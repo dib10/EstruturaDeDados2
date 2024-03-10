@@ -73,3 +73,21 @@ int valorString(char *str)
         valor = 31 * valor + (int)str[i];
     return valor;
 }
+int insereHash_SemColisao(Hash *ha, struct aluno al)
+{
+    if (ha == NULL || ha->qtd == ha->TABLE_SIZE)
+        return 0;
+    int chave = al.matricula;
+    //int chave = valorString(al.nome);
+    int pos = chaveDivisao(chave, ha->TABLE_SIZE);
+    //int pos = chaveMultiplicacao(chave, ha->TABLE_SIZE);
+    //int pos = chaveDobra(chave, ha->TABLE_SIZE);
+    struct aluno *novo;
+    novo = (struct aluno *)malloc(sizeof(struct aluno));
+    if (novo == NULL)
+        return 0;
+    *novo = al;
+    ha->itens[pos] = novo; //armazena o endereço do novo elemento
+    ha->qtd++; //atualiza a quantidade de elementos
+    return 1;
+}
