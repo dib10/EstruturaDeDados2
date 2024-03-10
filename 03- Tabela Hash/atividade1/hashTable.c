@@ -57,3 +57,10 @@ int chaveMultiplicacao(int chave, int TABLE_SIZE)
     val = val - (int)val;
     return (int)(TABLE_SIZE * val);
 }
+int chaveDobra(int chave, int TABLE_SIZE)
+{
+    int num_bits = 10;
+    int parte1 = chave >> num_bits;
+    int parte2 = chave & (TABLE_SIZE - 1);
+    return (parte1 ^ parte2);
+}
