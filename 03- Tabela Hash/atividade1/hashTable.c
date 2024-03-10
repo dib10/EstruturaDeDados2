@@ -104,3 +104,7 @@ int buscaHash_SemColisao(Hash *ha, int mat, struct aluno *al)
     *al = *(ha->itens[pos]);
     return 1;
 }
+int sondagemLinear(int pos, int i, int TABLE_SIZE)
+{
+    return ((pos + i) & 0x7FFFFFFF) % TABLE_SIZE;
+}
