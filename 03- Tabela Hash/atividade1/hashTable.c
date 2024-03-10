@@ -108,3 +108,9 @@ int sondagemLinear(int pos, int i, int TABLE_SIZE)
 {
     return ((pos + i) & 0x7FFFFFFF) % TABLE_SIZE;
 }
+
+int sondagemQuadratica(int pos, int i, int TABLE_SIZE)
+{
+    pos = pos + 2 * i + 5 * i * i;
+    return (pos & 0x7FFFFFFF) % TABLE_SIZE;
+}
