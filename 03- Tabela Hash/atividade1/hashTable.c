@@ -46,3 +46,7 @@ void liberaHash(Hash *ha)
         free(ha);
     }
 }
+int chaveDivisao(int chave, int TABLE_SIZE)
+{
+    return (chave & 0x7FFFFFFF) % TABLE_SIZE;
+}
