@@ -1,26 +1,81 @@
-/*
-Implementar o programa hashTable no formato de TAD, com os três arquivos: hashTable.h,
-hashTable.c e main.c. Você poderá incluir mais bibliotecas caso queira (eu acho recomendável),
-para incluir funções auxiliares.
-• Em seu projeto, você desenvolverá todo o arquivo main.c, que então controlará a execução de todo
-o programa da seguinte forma:
-• Um menu apresentará as opções de execução da tabela Hash com inserções sem tratamento de
-colisões, ou inserções com tratamento de colisões. O programa deverá funcionar somente com
-uma das opções, e nunca as duas juntas por motivos óbvios, uma vez que as funções de hashing
-são diferentes. Deverá apresentar ainda a opção de encerramento do programa.
-• Uma vez determinado o passo anterior, um segundo menu deverá apresentar as opções de
-inserção de elementos e busca de elementos, com o questionamento após cada tarefa, se o
-usuário deseja continuar com as operações. Se não desejar, o programa será encerrado.*/
+
+
+
+
+#include "hashTable.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "hashTable.h" //inclui os Protótipos
 
+void imprimeAluno(struct aluno al)
+{
+    printf("Matricula: %d\n", al.matricula);
+    printf("Nome: %s\n", al.nome);
+    printf("Nota1: %.2f\n", al.n1);
+    printf("Nota2: %.2f\n", al.n2);
+    printf("Nota3: %.2f\n", al.n3);
+    printf("-------------------------------\n");
+}
+
+int menuDefineCol()
+{
+    system("cls");
+    int continua;
+    printf("Deseja trabalhar com ou sem colisoes?\n");
+    printf("1 - Sem colisoes\n");
+    printf("2 - Com colisoes\n");
+    printf("0 - Encerrar\n");
+    printf("Digite a opcao desejada: ");
+    scanf("%d", &continua);
+    return continua;
+    
+}
+
+int menuInsBuscaSemColisoes()
+{
+    int continua;
+    printf("Deseja inserir ou buscar sem colisoes?\n");
+    printf("1 - Inserir\n");
+    printf("2 - Buscar\n");
+    printf("escolha: ");
+    scanf("%d", &continua);
+    system("cls");
+    return continua;
+}
+
+int menuInsBuscaComColisoes()
+{
+    int continua;
+    printf("Deseja inserir ou buscar com colisoes?\n");
+    printf("1 - Inserir\n");
+    printf("2 - Buscar\n");
+    printf("escolha: ");
+    scanf("%d", &continua);
+    system("cls");
+    return continua;
+}
+struct aluno coletaDados() {
+    struct aluno al;
+    printf("Digite a matricula do aluno: ");
+    scanf("%d", &al.matricula);
+    printf("Digite o nome do aluno: ");
+    scanf("%s", al.nome);
+    printf("Digite a primeira nota do aluno: ");
+    scanf("%f", &al.n1);
+    printf("Digite a segunda nota do aluno: ");
+    scanf("%f", &al.n2);
+    printf("Digite a terceira nota do aluno: ");
+    scanf("%f", &al.n3);
+    return al;
+}
+int main() {
+    
 struct aluno dadosAluno;
-int i,matricula,continua;
 int tamanho = 1024;
-int qtd =1;
-Hash *tableNoCol = criaHash(tamanho);
-Hash *tableWithCol = criaHash(tamanho);
+Hash *tableNoCol = criahash(tamanho);
+Hash *tableWithCol = criahash(tamanho);
+int i,matricula,continua;
+int qtd = 1;
+
 
 while(1)
 {
@@ -28,8 +83,8 @@ while(1)
     switch(continua) {
         case 0:
             printf("Programa encerrado e deslocando memória...!\n");
-            liberaHash(tableNoCol);
-            liberaHash(tableWithCol);
+            liberahash(tableNoCol);
+            liberahash(tableWithCol);
             system("pause");
             return 0;
         case 1:
@@ -38,7 +93,7 @@ while(1)
                 if(menuInsBuscaSemColisoes() == 0)
                 {
                     printf("Inserindo sem tratamento de colisoes");
-                    insereHash_semColisao(tableNoCol, coletaDados());
+                    insereHash_SemColisao(tableNoCol, coletaDados());
                 }
                 else
                 {
@@ -46,7 +101,7 @@ while(1)
                     printf("Digite a matricula do aluno a ser buscado: ");
                     scanf("%d", &matricula);
                     fflush(stdin);
-                    if(buscaHash_semColisao(tableNoCol, matricula, &dadosAluno))
+                    if(buscaHash_SemColisao(tableNoCol, matricula, &dadosAluno))
                     {
                         imprimeAluno(dadosAluno);
                     }
@@ -92,4 +147,6 @@ while(1)
             printf("Opção inválida\n");
             system("pause");
     }
+}
+return 0;
 }

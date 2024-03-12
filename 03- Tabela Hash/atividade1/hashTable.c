@@ -11,8 +11,8 @@ struct hash
     int qtd;
     int TABLE_SIZE;
     struct aluno **itens;
-}
-Hash *criaHash(int TABLE_SIZE)
+};
+Hash *criahash(int TABLE_SIZE)
 {
     Hash *ha = (Hash *)malloc(sizeof(Hash));
     if (ha != NULL)
@@ -32,7 +32,7 @@ Hash *criaHash(int TABLE_SIZE)
     }
     return ha;
 }
-void liberaHash(Hash *ha)
+void liberahash(Hash *ha)
 {
     if (ha != NULL)
     {
