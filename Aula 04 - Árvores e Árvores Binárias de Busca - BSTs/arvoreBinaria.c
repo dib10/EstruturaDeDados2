@@ -59,3 +59,17 @@ int altura_arvBin(ArvBin *raiz)
         return (alt_dir + 1);
     }
 }
+int totalNO_arvBin(ArvBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return 0;
+    }
+    if (*raiz == NULL)
+    {
+        return 0;
+    }
+    int alt_esq = totalNO_arvBin(&((*raiz)->esq));
+    int alt_dir = totalNO_arvBin(&((*raiz)->dir));
+    return (alt_esq + alt_dir + 1);
+}

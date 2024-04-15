@@ -14,5 +14,8 @@ int main()
     }
     x = altura_arvBin(raiz);
     printf("Altura da arvore: %d", x);
+    x = totalNO_arvBin(raiz);
+    printf("Total de nos na arvore: %d", x);
+
 }
 
