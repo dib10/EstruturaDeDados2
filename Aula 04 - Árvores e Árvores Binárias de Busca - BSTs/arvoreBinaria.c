@@ -86,3 +86,16 @@ void preOrdem_arvBin(ArvBin *raiz)
         preOrdem_arvBin(&((*raiz)->dir));
     }
 }
+void emOrdem_arvBin(ArvBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return;
+    }
+    if (*raiz != NULL)
+    {
+        emOrdem_arvBin(&((*raiz)->esq));
+        printf("%d\n", (*raiz)->info);
+        emOrdem_arvBin(&((*raiz)->dir));
+    }
+}
