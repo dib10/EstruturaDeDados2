@@ -73,3 +73,16 @@ int totalNO_arvBin(ArvBin *raiz)
     int alt_dir = totalNO_arvBin(&((*raiz)->dir));
     return (alt_esq + alt_dir + 1);
 }
+void preOrdem_arvBin(ArvBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return;
+    }
+    if (*raiz != NULL)
+    {
+        printf("%d\n", (*raiz)->info);
+        preOrdem_arvBin(&((*raiz)->esq));
+        preOrdem_arvBin(&((*raiz)->dir));
+    }
+}
