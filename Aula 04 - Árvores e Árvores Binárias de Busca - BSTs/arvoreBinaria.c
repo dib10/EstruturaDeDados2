@@ -8,3 +8,12 @@ struct NO
     struct NO *esq;
     struct NO *dir;
 };
+ArvBin *cria_arvBin()
+{
+    ArvBin *raiz = (ArvBin *)malloc(sizeof(ArvBin));
+    if (raiz != NULL)
+    {
+        *raiz = NULL;
+    }
+    return raiz;
+}

@@ -1,5 +1,6 @@
 int main()
 {
     int x;
-    ArvBin *raiz;    
+    ArvBin *raiz; 
+    raiz = cria_arvBin();   
 }
