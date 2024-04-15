@@ -26,3 +26,15 @@ void liberar_arvBin(ArvBin *raiz)
     libera_NO(*raiz); 
     free(raiz);       
 }
+int vazia_arvBin(ArvBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return 1;
+    }
+    if (*raiz == NULL)
+    {
+        return 1;
+    }
+    return 0;
+}
