@@ -17,3 +17,12 @@ ArvBin *cria_arvBin()
     }
     return raiz;
 }
+void liberar_arvBin(ArvBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return;
+    }
+    libera_NO(*raiz); 
+    free(raiz);       
+}
