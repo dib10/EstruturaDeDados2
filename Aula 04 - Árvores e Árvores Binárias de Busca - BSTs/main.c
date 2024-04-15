@@ -12,5 +12,7 @@ int main()
     {
         printf("Arvore possui elementos\n");
     }
+    x = altura_arvBin(raiz);
+    printf("Altura da arvore: %d", x);
 }
 

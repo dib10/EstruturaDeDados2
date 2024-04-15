@@ -38,3 +38,24 @@ int vazia_arvBin(ArvBin *raiz)
     }
     return 0;
 }
+int altura_arvBin(ArvBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return 0;
+    }
+    if (*raiz == NULL)
+    {
+        return 0;
+    }
+    int alt_esq = altura_arvBin(&((*raiz)->esq));
+    int alt_dir = altura_arvBin(&((*raiz)->dir));
+    if (alt_esq > alt_dir)
+    {
+        return (alt_esq + 1);
+    }
+    else
+    {
+        return (alt_dir + 1);
+    }
+}
