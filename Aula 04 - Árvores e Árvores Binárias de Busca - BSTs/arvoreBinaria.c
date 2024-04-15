@@ -99,3 +99,16 @@ void emOrdem_arvBin(ArvBin *raiz)
         emOrdem_arvBin(&((*raiz)->dir));
     }
 }
+void posOrdem_arvBin(ArvBin *raiz)
+{
+    if (raiz == NULL)
+    {
+        return;
+    }
+    if (*raiz != NULL)
+    {
+        posOrdem_arvBin(&((*raiz)->esq));
+        posOrdem_arvBin(&((*raiz)->dir));
+        printf("%d\n", (*raiz)->info);
+    }
+}

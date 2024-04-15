@@ -18,6 +18,7 @@ int main()
     printf("Total de nos na arvore: %d", x);
     preOrdem_arvBin(raiz);
     emOrdem_arvBin(raiz);
+    posOrdem_arvBin(raiz);
 
 }
 
