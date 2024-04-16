@@ -17,14 +17,26 @@ ArvBin *cria_arvBin()
     }
     return raiz;
 }
-void liberar_arvBin(ArvBin *raiz)
+void libera_NO(struct NO *no)
+{
+    if(no ==NULL)
+    {
+        libera_NO(no->esq);
+        libera_NO(no->esq);
+        free(no);
+        no == NULL;
+
+
+    }
+}
+void libera_arvBin(ArvBin *raiz)
 {
     if (raiz == NULL)
     {
         return;
     }
-    libera_NO(*raiz); 
-    free(raiz);       
+    libera_NO(*raiz);
+    free(raiz);
 }
 int vazia_arvBin(ArvBin *raiz)
 {
