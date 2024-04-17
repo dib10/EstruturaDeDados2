@@ -21,8 +21,39 @@ int main()
     preOrdem_arvBin(raiz);
     emOrdem_arvBin(raiz);
     posOrdem_arvBin(raiz);
+    x= insere_arvBin(raiz, 150);
+    if(x)
+    {
+        printf("Elemento inserido com sucesso\n");
+    }
+    else
+    {
+        printf("Elemento nao inserido\n");
+    }
+    x = insere_arvBin(raiz,110);
+    if(x)
+    {
+        printf("Elemento inserido com sucesso\n");
+    }
+    else
+    {
+        printf("Elemento nao inserido\n");
+    }
+    x = insere_arvBin(raiz, 100);
+    x = insere_arvBin(raiz, 130);
+    x = insere_arvBin(raiz, 120);
+    x = insere_arvBin(raiz, 140);
+    x = insere_arvBin(raiz, 160);
+    x = remove_arvBin(raiz, 100);
+    printf("\nBusca na arvore Binaria: \n ");
+    if (consulta_arvBin(raiz, 140))
+    {
+        printf("consulta realizada c sucesso\n");
+    }
+    else
+    {
+        printf("Elemento nao encontrado\n");
+    }
     libera_arvBin(raiz);
-
-
 }
 

@@ -8,3 +8,7 @@ void preOrdem_arvBin(ArvBin *raiz);
 void emOrdem_arvBin(ArvBin *raiz);
 void posOrdem_arvBin(ArvBin *raiz);
 void libera_NO(struct NO *no);
+int insere_arvBin(ArvBin *raiz, int valor);
+int remove_arvBin(ArvBin *raiz, int valor);
+struct NO *remove_atual(struct NO *atual);
+int consulta_arvBin(ArvBin *raiz, int valor);
