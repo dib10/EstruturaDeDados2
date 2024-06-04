@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1713131439 source:c:\users\ednal\downloads\arvores(bst)\arvorebinaria.c
+	<stdio.h>
+	<stdlib.h>
+	"arvoreBinaria.h"
+
+1713131415 c:\users\ednal\downloads\arvores(bst)\arvorebinaria.h
+
+1713311200 source:c:\users\aluno\downloads\arvores(bst)\arvorebinaria.c
+	<stdio.h>
+	<stdlib.h>
+	"arvoreBinaria.h"
+
+1713312467 c:\users\aluno\downloads\arvores(bst)\arvorebinaria.h
+
+1713312406 source:c:\users\aluno\downloads\arvores(bst)\main.c
+	<stdio.h>
+	<stdlib.h>
+	"arvoreBinaria.h"
+
